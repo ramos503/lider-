@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Arte del Liderazgo: Transformando el Mundo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --dark: #2d3748;
+            --light: #f7fafc;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--gradient-accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main Content */
+        main {
+            background: var(--light);
+            position: relative;
+        }
+
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .section:nth-child(even) {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Leader Types Grid */
+        .leaders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .leader-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leader-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .leader-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 80px rgba(0,0,0,0.2);
+        }
+
+        .leader-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .leader-card h4 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Famous Leaders Section */
+        .famous-leaders {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .famous-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .famous-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .famous-header {
+            background: var(--gradient);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .famous-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .famous-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .famous-card .role {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .famous-content {
+            padding: 2rem;
+        }
+
+        /* Interactive Elements */
+        .interactive-quote {
+            background: var(--gradient);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interactive-quote::before {
+            content: '"';
+            font-size: 8rem;
+            position: absolute;
+            top: -2rem;
+            left: 2rem;
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .quote-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .quote-author {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Statistics Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">🌟 Leadership Blog</a>
+            <ul class="nav-links">
+                <li><a href="#importancia">Importancia</a></li>
+                <li><a href="#caracteristicas">Características</a></li>
+                <li><a href="#tipos">Tipos</a></li>
+                <li><a href="#lideres">Líderes Famosos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>El Arte del Liderazgo</h1>
+            <p>Descubre cómo los grandes líderes transforman el mundo y cómo tú puedes desarrollar tu potencial de liderazgo</p>
+            <a href="#importancia" class="cta-button">Explorar Ahora</a>
+        </div>
+    </section>
+
+    <main>
+        <section id="importancia" class="section">
+            <div class="container">
+                <h2 class="section-title fade-in">Importancia del Liderazgo</h2>
+                
+                <div class="interactive-quote fade-in">
+                    <p class="quote-text">El liderazgo no es una posición o un título, es acción e ejemplo</p>
+                    <p class="quote-author">- Cory Booker</p>
+                </div>
+
+                <div class="content-grid fade-in">
+                    <div class="card">
+                        <h3>🎯 Dirección y Visión</h3>
+                        <p>Los líderes proporcionan dirección clara y una visión inspiradora que guía a los equipos hacia objetivos comunes. Establecen el rumbo y motivan a otros a seguirlo con pasión y compromiso.</p>
+                    </div>
+                    <div class="card">
+                        <h3>💡 Innovación y Cambio</h3>
+                        <p>El liderazgo efectivo impulsa la innovación y facilita el cambio organizacional. Los líderes ven oportunidades donde otros ven obstáculos y transforman desafíos en soluciones creativas.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🤝 Desarrollo de Personas</h3>
+                        <p>Los grandes líderes no solo logran resultados, sino que desarrollan a las personas. Identifican potencial, proporcionan mentoring y crean oportunidades de crecimiento para su equipo.</p>
+                    </div>
+                </div>
+
+                <div class="stats-grid fade-in">
+                    <div class="stat-card">
+                        <div class="stat-number">87%</div>
+                        <p>de las organizaciones reportan falta de líderes efectivos</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2.3x</div>
+                        <p>mayor probabilidad de superar objetivos con buen liderazgo</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">67%</div>
+                        <p>de empleados están más comprometidos con líderes inspiradores</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="caracteristicas" class="section">
+            <div class="container">
+                <h2 class="section-title fade-in">Características de un Líder Efectivo</h2>
+                
+                <div class="content-grid fade-in">
+                    <div class="card">
+                        <h3>🎨 Visión Estratégica</h3>
+                        <p>Capacidad para ver el panorama general, anticipar tendencias futuras y crear una visión clara que inspire y motive a otros a trabajar hacia objetivos comunes.</p>
+                    </div>
+                    <div class="card">
+                        <h3>💬 Comunicación Efectiva</h3>
+                        <p>Habilidad para transmitir ideas de manera clara, escuchar activamente y adaptar su mensaje a diferentes audiencias, creando conexiones significativas.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🧠 Inteligencia Emocional</h3>
+                        <p>Autoconciencia, autorregulación, empatía y habilidades sociales que permiten gestionar emociones propias y ajenas de manera efectiva.</p>
+                    </div>
+                    <div class="card">
+                        <h3>⚡ Toma de Decisiones</h3>
+                        <p>Capacidad para analizar información, evaluar opciones y tomar decisiones difíciles bajo presión, asumiendo responsabilidad por los resultados.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🔄 Adaptabilidad</h3>
+                        <p>Flexibilidad para ajustarse a cambios, aprender de errores y evolucionar su estilo de liderazgo según las circunstancias y necesidades del equipo.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🏆 Integridad</h3>
+                        <p>Coherencia entre valores, palabras y acciones. Los líderes íntegros generan confianza y credibilidad, fundamentales para el liderazgo efectivo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tipos" class="section">
+            <div class="container">
+                <h2 class="section-title fade-in">Tipos de Liderazgo</h2>
+                
+                <div class="leaders-grid fade-in">
+                    <div class="leader-card">
+                        <div class="leader-icon">👑</div>
+                        <h4>Liderazgo Autocrático</h4>
+                        <p>El líder toma todas las decisiones sin consultar al equipo. Efectivo en situaciones de crisis que requieren decisiones rápidas.</p>
+                    </div>
+                    <div class="leader-card">
+                        <div class="leader-icon">🤝</div>
+                        <h4>Liderazgo Democrático</h4>
+                        <p>Involucra al equipo en la toma de decisiones. Fomenta la participación y el compromiso, pero puede ser más lento.</p>
+                    </div>
+                    <div class="leader-card">
+                        <div class="leader-icon">🎯</div>
+                        <h4>Liderazgo Situacional</h4>
+                        <p>Adapta su estilo según la situación y madurez del equipo. Flexible y efectivo en diferentes contextos.</p>
+                    </div>
+                    <div class="leader-card">
+                        <div class="leader-icon">🚀</div>
+                        <h4>Liderazgo Transformacional</h4>
+                        <p>Inspira y motiva al equipo hacia una visión compartida. Promueve el crecimiento personal y profesional.</p>
+                    </div>
+                    <div class="leader-card">
+                        <div class="leader-icon">⚡</div>
+                        <h4>Liderazgo Carismático</h4>
+                        <p>Utiliza el carisma personal para influir e inspirar. Genera lealtad y entusiasmo en los seguidores.</p>
+                    </div>
+                    <div class="leader-card">
+                        <div class="leader-icon">🛡️</div>
+                        <h4>Liderazgo Servidor</h4>
+                        <p>Se enfoca en servir al equipo y desarrollar a las personas. Prioriza el bienestar y crecimiento de otros.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="lideres" class="section">
+            <div class="container">
+                <h2 class="section-title fade-in">Líderes Famosos que Cambiaron el Mundo</h2>
+                
+                <div class="famous-leaders fade-in">
+                    <div class="famous-card">
+                        <div class="famous-header">
+                            <h4>Nelson Mandela</h4>
+                            <p class="role">Líder de Derechos Civiles</p>
+                        </div>
+                        <div class="famous-content">
+                            <p>Demostró que el liderazgo puede superar la adversidad más extrema. Su enfoque en la reconciliación y el perdón transformó Sudáfrica y el mundo.</p>
+                            <p><strong>Legado:</strong> Unió una nación dividida y demostró el poder del liderazgo moral.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="famous-card">
+                        <div class="famous-header">
+                            <h4>Steve Jobs</h4>
+                            <p class="role">Visionario Tecnológico</p>
+                        </div>
+                        <div class="famous-content">
+                            <p>Revolucionó múltiples industrias con su visión y perfeccionismo. Su liderazgo transformacional cambió cómo interactuamos con la tecnología.</p>
+                            <p><strong>Legado:</strong> Creó productos que definieron generaciones y una cultura de innovación constante.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="famous-card">
+                        <div class="famous-header">
+                            <h4>Oprah Winfrey</h4>
+                            <p class="role">Líder Mediática e Inspiracional</p>
+                        </div>
+                        <div class="famous-content">
+                            <p>Utilizó su plataforma para empoderar y educar a millones. Su liderazgo auténtico y empático ha inspirado cambios sociales significativos.</p>
+                            <p><strong>Legado:</strong> Redefinió el poder de los medios como fuerza de cambio social positivo.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="famous-card">
+                        <div class="famous-header">
+                            <h4>Mahatma Gandhi</h4>
+                            <p class="role">Líder de Resistencia Pacífica</p>
+                        </div>
+                        <div class="famous-content">
+                            <p>Demostró que el cambio masivo puede lograrse sin violencia. Su liderazgo basado en principios inspiró movimientos globales.</p>
+                            <p><strong>Legado:</strong> Probó que la resistencia pacífica puede derrotar al poder establecido.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="famous-card">
+                        <div class="famous-header">
+                            <h4>Marie Curie</h4>
+                            <p class="role">Pionera Científica</p>
+                        </div>
+                        <div class="famous-content">
+                            <p>Lideró con el ejemplo en un campo dominado por hombres. Su dedicación y perseverancia abrieron caminos para futuras generaciones.</p>
+                            <p><strong>Legado:</strong> Primera mujer en ganar un Nobel y única en ganar en dos disciplinas diferentes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="famous-card">
+                        <div class="famous-header">
+                            <h4>Elon Musk</h4>
+                            <p class="role">Innovador Disruptivo</p>
+                        </div>
+                        <div class="famous-content">
+                            <p>Lidera múltiples industrias hacia el futuro con visión audaz. Su liderazgo visionario está redefiniendo transporte, energía y exploración espacial.</p>
+                            <p><strong>Legado:</strong> Acelera la transición hacia tecnologías sostenibles y exploración espacial.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="interactive-quote fade-in">
+                    <p class="quote-text">El verdadero liderazgo se demuestra cuando todo parece perdido</p>
+                    <p class="quote-author">- Principio Universal del Liderazgo</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in">La Influencia del Liderazgo en el Siglo XXI</h2>
+                
+                <div class="content-grid fade-in">
+                    <div class="card">
+                        <h3>🌐 Liderazgo Digital</h3>
+                        <p>En la era digital, los líderes deben navegar la transformación tecnológica, liderar equipos remotos y adaptarse a cambios constantes en el panorama digital.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🌱 Liderazgo Sostenible</h3>
+                        <p>Los líderes modernos integran responsabilidad ambiental y social en sus decisiones, equilibrando beneficios económicos con impacto positivo.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🤖 Liderazgo e IA</h3>
+                        <p>La inteligencia artificial está transformando cómo los líderes toman decisiones, analizan datos y predicen tendencias futuras.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🌍 Liderazgo Global</h3>
+                        <p>Los líderes actuales deben entender culturas diversas, gestionar equipos multiculturales y navegar complejidades geopolíticas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Leadership Blog. Inspirando líderes para transformar el mundo.</p>
+            <p>El liderazgo no es sobre ser el jefe, es sobre cuidar de aquellos bajo tu responsabilidad.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Dynamic quote rotation
+        const quotes = [
+            {
+                text: "El liderazgo no es una posición o un título, es acción e ejemplo",
+                author: "Cory Booker"
+            },
+            {
+                text: "Un líder es alguien que conoce el camino, va por el camino y muestra el camino",
+                author: "John C. Maxwell"
+            },
+            {
+                text: "El liderazgo es la capacidad de traducir la visión en realidad",
+                author: "Warren Bennis"
+            },
+            {
+                text: "Antes de ser un líder, el éxito se trata del crecimiento personal. Cuando te conviertes en líder, el éxito se trata del crecimiento de otros",
+                author: "Jack Welch"
+            }
+        ];
+
+        let currentQuoteIndex = 0;
+        
+        function rotateQuote() {
+            const quoteElement = document.querySelector('.quote-text');
+            const authorElement = document.querySelector('.quote-author');
+            
+            if (quoteElement && authorElement) {
+                quoteElement.style.opacity = '0';
+                authorElement.style.opacity = '0';
+                
+                setTimeout(() => {
+                    currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+                    quoteElement.textContent = quotes[currentQuoteIndex].text;
+                    authorElement.textContent = `- ${quotes[currentQuoteIndex].author}`;
+                    
+                    quoteElement.style.opacity = '1';
+                    authorElement.style.opacity = '1';
+                }, 300);
+            }
+        }
+
+        // Rotate quotes every 8 seconds
+        setInterval(rotateQuote, 8000);
+
+        // Add interactive hover effects to cards
+        document.querySelectorAll('.card, .leader-card, .famous-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Counter animation for statistics
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseFloat(counter.textContent);
+                const increment = target / 100;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = counter.textContent.includes('%') ? 
+                            Math.round(target) + '%' : 
+                            counter.textContent.includes('x') ? 
+                                target.toFixed(1) + 'x' : 
+                                Math.round(target) + '%';
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = counter.textContent.includes('%') ? 
+                            Math.round(current) + '%' : 
+                            counter.textContent.includes('x') ? 
+                                current.toFixed(1) + 'x' : 
+                                Math.round(current) + '%';
+                    }
+                }, 50);
+            });
+        }
+
+        // Trigger counter animation when statistics section comes into view
+        const statsSection = document.querySelector('.stats-grid');
+        if (statsSection) {
+            const statsObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            statsObserver.observe(statsSection);
+        }
+
+        // Add typing effect to hero title
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.textContent = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect after page load
+        window.addEventListener('load', function() {
+            const heroTitle = document.querySelector('.hero h1');
+            if (heroTitle) {
+                const originalText = heroTitle.textContent;
+                setTimeout(() => {
+                    typeWriter(heroTitle, originalText, 150);
+                }, 1000);
+            }
+        });
+
+        // Add floating animation to leader icons
+        document.querySelectorAll('.leader-icon').forEach((icon, index) => {
+            icon.style.animationDelay = `${index * 0.2}s`;
+            icon.style.animation = 'float 3s ease-in-out infinite';
+        });
+
+        // Add CSS for floating animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes iconFloat {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Interactive navigation highlighting
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.pageYOffset >= sectionTop) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add active state styles
+        const navStyle = document.createElement('style');
+        navStyle.textContent = `
+            .nav-links a.active {
+                background: rgba(255, 255, 255, 0.3);
+                transform: translateY(-2px);
+            }
+        `;
+        document.head.appendChild(navStyle);
+
+        // Easter egg: Konami code for special animation
+        let konamiCode = [];
+        const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // ↑↑↓↓←→←→BA
+        
+        document.addEventListener('keydown', function(e) {
+            konamiCode.push(e.keyCode);
+            if (konamiCode.length > konamiSequence.length) {
+                konamiCode.shift();
+            }
+            
+            if (konamiCode.join(',') === konamiSequence.join(',')) {
+                // Special leadership animation
+                document.body.style.animation = 'rainbow 2s ease-in-out';
+                setTimeout(() => {
+                    document.body.style.animation = '';
+                }, 2000);
+                
+                // Add rainbow animation
+                const rainbowStyle = document.createElement('style');
+                rainbowStyle.textContent = `
+                    @keyframes rainbow {
+                        0% { filter: hue-rotate(0deg); }
+                        25% { filter: hue-rotate(90deg); }
+                        50% { filter: hue-rotate(180deg); }
+                        75% { filter: hue-rotate(270deg); }
+                        100% { filter: hue-rotate(360deg); }
+                    }
+                `;
+                document.head.appendChild(rainbowStyle);
+            }
+        });
+
+        // Add mobile menu toggle
+        function createMobileMenu() {
+            const nav = document.querySelector('nav');
+            const navLinks = document.querySelector('.nav-links');
+            
+            const mobileToggle = document.createElement('button');
+            mobileToggle.innerHTML = '☰';
+            mobileToggle.className = 'mobile-toggle';
+            mobileToggle.style.cssText = `
+                display: none;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+                @media (max-width: 768px) {
+                    display: block;
+                }
+            `;
+            
+            nav.appendChild(mobileToggle);
+            
+            mobileToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+        }
+        
+        createMobileMenu();
+
+        // Performance optimization: Lazy load images and heavy content
+        if ('IntersectionObserver' in window) {
+            const lazyElements = document.querySelectorAll('.card, .leader-card, .famous-card');
+            const lazyObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.willChange = 'transform';
+                        lazyObserver.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            lazyElements.forEach(el => lazyObserver.observe(el));
+        }
+    </script>
+</body>
+</html>
